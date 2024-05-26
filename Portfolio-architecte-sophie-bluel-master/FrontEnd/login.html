@@ -12,30 +12,39 @@
     <script src="./login.js" defer></script>
 
 </head>
-<body>
+<body class="bodyLogin">
     <header>
         <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
         <nav>
-            <ul>
+            <ul class ="header">
                 <li>projets</li>
                 <li>contact</li>
-                <li>login</li>
-                <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+                <li class="loginB">login</li>
+                <li><img src="./assets/icons/instagram.png" alt="Instagram" id="test"></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div class="login">LOG IN</div>
+        <h2 class="login">Log In</h2>
         <form class="log" id="connect">
             <div class="emailmdp">
-                <label for="emailStyle">E-mail</label>
-                <input type="email" name="mail" id="emailStyle">
-                <label for="Text">Mot de passe</label>
-                <input type="text" name="password" id="Text">
+                <label for="emailStyle" class="labelLogin">E-mail</label>
+                <input type="email" name="mail" id="emailStyle" class="inputLogin">
+                <label for="Text" class="labelLogin">Mot de passe</label>
+                <input type="text" name="password" id="Text" class="inputLogin">
                 <input type="submit" name="connection"  value="Se connecter" class="connect">
+                
             </div>
         </form>
+        <a class="mdpOublie">Mot de passe oublié</a>
         <div id="mdp"> </div>
     </main>
+    <footer>
+        <nav>
+            <ul>
+                <li>Mentions Légales</li>
+            </ul>
+        </nav>
+    </footer>
 </body>
 </html>
