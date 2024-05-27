@@ -114,10 +114,12 @@ function actualiser (reponse){
 }
 
 function ajoutPhoto(){
-    document.querySelector(".innerPopup").innerHTML = '<a class="back" onclick="modifier()">B</a><div class="galerieTitle">Ajout photo</div><a class="close" href="#">&times;</a><div class ="galeryModif"></div>';
+    document.querySelector(".innerPopup").innerHTML = '<a class="back" onclick="modifier()"><img src="assets/icons/arrow-left-solid.svg" alt="icon fleche"></a><div class="galerieTitle">Ajout photo</div><a class="close" href="#">&times;</a><div class ="galeryModif"></div>';
     let modfiG =  document.querySelector(".galeryModif");
-        modfiG.innerHTML = '<div class="imageToAdd"></div><form class="modifWork"><input type="file" accept="image/*" id="uploadImage"><label for="uploadImage">+ Ajouter photo</label><br><label for="titre">Titre</label><input type="text" name="titre" id="titre"><label for="category">Catégorie</label>';
-        modfiG.innerHTML += '<select name="category" id="categorySelect"><option value="test">test</option><option value="test">test</option></select><input type="submit" name="ajout"  value="Ajouter une photo" class="" onclick="testAdWork()"></form>';
+    modfiG.innerHTML = '<div class="imageToAdd"><span class="iconImgInput"><img src="assets/icons/image-regular.svg" alt="icon image"></span><form class="innerInputImage"><input type="file" accept="image/*" id="uploadImage"><label for="uploadImage" class="addImage">+ Ajouter photo</label></form><p class="inputImgInfo">jpg, png : 4mo max</p></div><form class="modifWork"><label for="titre">Titre</label><input type="text" name="titre" id="titre" class="inputForm"><label for="category">Catégorie</label><select name="category" id="categorySelect" class="inputForm"></select></form><span class="txtDecor"></span><div class="valider" onclick="testAdWork()">Valider</div>';
+    modfiG.style.flexDirection = 'column';
+    for (let i =0; i<categories.length;i++)
+        document.getElementById('categorySelect').innerHTML += '<option value="'+categories[i]+'">'+categories[i]+'</option>';
     inputImg();
 }
 
@@ -131,6 +133,12 @@ function inputImg(){
       const reader = new FileReader();
       reader.onload = function(e) {
         document.querySelector(".imageToAdd").innerHTML = '<img id="image" src="'+e.target.result+'" alt="Votre photo"></img>';
+        document.querySelector(".imageToAdd").style.flexDirection = 'row';
+        let img = document.querySelector(".imageToAdd img");
+        img.style.filter='';
+        img.style.width='150px';
+        img.style.marginTop = '-20px';
+        img.style.marginBottom = '-20px';
       };
       reader.readAsDataURL(file);
   }
@@ -149,8 +157,13 @@ function testAdWork(){
     let formData = new FormData();
 
     formData.append("image", file);
-    formData.append("title","abc");
-    formData.append("category",1);
+    formData.append("title",document.getElementById('titre').value);
+    for (j=0; j<categories.length; j++){
+        if (categories[j] == document.getElementById('categorySelect').value){
+            formData.append("category",j+1);
+            j = categories.length;
+        }          
+    }
     fetch("http://localhost:5678/api/works", 
       {method: 'POST',
       headers: {

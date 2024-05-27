@@ -209,7 +209,7 @@ footer nav ul {
 	text-align: center;
   }
   .modifWork {
-
+	display: flex;
 	flex-direction: column;
 	row-gap: 10px;
   }
@@ -219,6 +219,8 @@ footer nav ul {
 	column-gap: 7px;
 	row-gap: 35px;
 	margin-top: 30px;
+	flex-direction: row;
+	margin-bottom: 80px;
   }
   .galeryModif figure {
 	width: 20%!important;
@@ -240,19 +242,12 @@ footer nav ul {
     width: 100%;
   }
   #uploadImage{
-	margin-left: 17%;
-    margin-top: 35px;
+
   }
   input[type="file"] {
 	height: 0;
-	width: 17%;
+	width: 0;
 	overflow: hidden;
-  }
-  
-  input[type="file"] + label {
-	border: 1px solid rgba(0,0,0,.2);
-	padding: 5px;
-	background: lavender;
   }
 
   .bodyLogin{
@@ -327,7 +322,6 @@ footer nav ul {
 	background: #fff;
 	border-radius: 5px;
 	position: relative;
-	transition: all 5s ease-in-out;
 	width: 50%;
     height: 75%;
   }
@@ -437,7 +431,7 @@ footer{
     padding: 10px;
     display: flex;
     justify-content: center;
-    margin-top: 70px;
+    margin-top: 20px;
     border-top: solid;
     border-color: #B3B3B3;
 }
@@ -451,4 +445,60 @@ footer{
     font-weight: bold;
     text-decoration: none;
     color: #333;
+	width: 22px;
+}
+
+.addImage {
+	background: lavender;
+    display: flex;
+    width: 155px;
+    padding: 14px;
+    justify-content: center;
+    border-radius: 30px;
+}
+
+.imageToAdd{
+	background-color: #E8F1F6;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.iconImgInput img{
+	filter: invert(20%) sepia(0%) saturate(120%) hue-rotate(80deg) brightness(356%) contrast(100%);
+	width: 50px;
+}
+
+.innerInputImage{
+	display: flex;
+	justify-content: center;
+}
+
+.iconImgInput{
+	display: flex;
+	justify-content: center;
+}
+
+.valider {
+	background-color:#B3B3B3;
+	display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 10px;
+    color: white;
+    margin-right: 29%;
+    margin-left: 29%;
+    margin-top: -15px;
+}
+
+.inputForm {
+	border-style: none!important;
+	filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.1));
+	height: 51px;
+}
+
+.inputImgInfo {
+	display: flex;
+	justify-content: center;
 }
