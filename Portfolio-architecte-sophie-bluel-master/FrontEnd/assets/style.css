@@ -206,13 +206,10 @@ footer nav ul {
 	margin: 2em
 }
 .box {
-	width: 40%;
-	margin: 0 auto;
-	background: rgba(255,255,255,0.2);
 	text-align: center;
   }
   .modifWork {
-	display:none;
+
 	flex-direction: column;
 	row-gap: 10px;
   }
@@ -230,8 +227,12 @@ footer nav ul {
   }
   .galeryModif figure a{
 	position: absolute;
-	top:0;
-	right: 0;
+    top: 7px;
+    right: 7px;
+    color: white;
+    background-color: black;
+    padding: 3px;
+    border-radius: 3px;
   }
   .galeryModif figure img{
 	height: 103px;
@@ -241,6 +242,17 @@ footer nav ul {
   #uploadImage{
 	margin-left: 17%;
     margin-top: 35px;
+  }
+  input[type="file"] {
+	height: 0;
+	width: 17%;
+	overflow: hidden;
+  }
+  
+  input[type="file"] + label {
+	border: 1px solid rgba(0,0,0,.2);
+	padding: 5px;
+	background: lavender;
   }
 
   .bodyLogin{
@@ -280,10 +292,19 @@ footer nav ul {
 	display: flex;
     column-gap: 10px;
   }
-  .button:hover {
-	background: #06D85F;
+
+  .buttonAjoutPhoto {
+	display: flex;
+    justify-content: center;
+    background-color: #1D6154;
+    border-radius: 20px;
+    padding: 10px;
+    color: white;
+    margin-right: 29%;
+    margin-left: 29%;
+    margin-top: 15px;
   }
-  
+
   .overlay {
 	position: fixed;
 	top: 0;
@@ -387,9 +408,9 @@ footer{
 }
 
 .modifier {
-	position: absolute;
-	margin-top: -57px;
-    margin-left: 60%;
+	display: flex;
+	justify-content: center;
+	margin-right: -80px;
 }
 
 .svgIcon {
@@ -399,10 +420,35 @@ footer{
 
 .galerieTitle{
 	font-size: 26px;
+	justify-content: center;
+    display: flex;
+    margin-bottom: 38px;
+    margin-top: -35px;
 }
 
 .innerPopup{
 	margin: 75px;
-	margin-left: 120px;
-	margin-right: 120px;
+	margin-left: 75px;
+	margin-right: 75px;
+}
+
+.txtDecor {
+	font-size: 17px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+    border-top: solid;
+    border-color: #B3B3B3;
+}
+
+.back {
+	position: absolute;
+    top: 20px;
+    left: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
 }

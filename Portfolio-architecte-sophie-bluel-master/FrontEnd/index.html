@@ -7,6 +7,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 
@@ -20,12 +21,26 @@
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<li><a href="login.html">login</a></li>
+			<li class="aLogin"><a href="login.html" >login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
 </header>
 <main>
+	<div id="popup1" class="overlay">
+		<div class="popup">
+			<div class="innerPopup">
+				
+			</div>
+		</div>
+	</div>
+	<!--<div id="fenetreModif">
+		Galerie photo </br> 
+		<form class="modifWork">
+			<input type="file" accept="image/*" id="uploadImage">
+			<input type="submit" name="ajout"  value="Ajouter une photo" class="">
+		</form>
+	</div>-->
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
@@ -38,11 +53,11 @@
 		</article>
 	</section>
 	<section id="portfolio">
+		<span class="modifier">
 		<h2>Mes Projets</h2>
-    	<div class="filtres">
-		</div>
-		<div class="gallery">
-		</div>
+		</span>
+    	<div class="filtres"></div>
+		<div class="gallery"></div>
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>
