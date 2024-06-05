@@ -1,6 +1,7 @@
 
 const form = document.getElementById('connect');
 let admin = false;
+let tok = "";
 
 function connection(e) {
     e.preventDefault();
@@ -36,9 +37,10 @@ form.addEventListener("submit", connection);
 
 function testReponse(reponse){
   if (admin){
+    tok = reponse.token;
     document.getElementById('mdp').innerHTML = "Connexion...";
-
     sessionStorage.setItem("tokenSophieBluel", reponse.token);
-    console.log(sessionStorage.getItem("tokenSophieBluel"));
+    document.location.href="index.html";
   }
+ 
 }
