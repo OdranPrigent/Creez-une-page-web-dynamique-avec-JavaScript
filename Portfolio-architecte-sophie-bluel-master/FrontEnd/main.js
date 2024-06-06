@@ -1,7 +1,9 @@
 let projets;
 let categories = [];
+let activeFiltre = 0;
 
 function filtre(id){
+    activeFiltre = id;
     createGalery (projets, id);
 }
 
@@ -44,7 +46,6 @@ function createGalery (works, id) {
         } 
     }
     createFiltre(-1);
-
 
     if (sessionStorage.getItem("tokenSophieBluel"))
         modifier();
@@ -148,12 +149,19 @@ function imageValid(file){
 
 function createFiltre(j){
     let filtres = document.querySelector(".filtres");
-    if (j == -1)
-        filtres.innerHTML += '<p class="filtre" onclick="filtre(' +0+ ')">Tous</p>';
+    if (j == -1){
+        if (activeFiltre == 0)
+            filtres.innerHTML += '<p class="filtreActif" onclick="filtre(' +0+ ')">Tous</p>';
+        else
+            filtres.innerHTML += '<p class="filtre" onclick="filtre(' +0+ ')">Tous</p>';
+    }
     else{
         for (let i=0; i<projets.length;i++)
             if (categories[j] == projets[i].category.name){
-                filtres.innerHTML += '<p class="filtre" onclick="filtre(' +projets[i].category.id+ ')">' + categories[j] + '</p>';
+                if (activeFiltre == projets[i].categoryId)
+                    filtres.innerHTML += '<p class="filtreActif" onclick="filtre(' +projets[i].category.id+ ')">' + categories[j] + '</p>';
+                else
+                    filtres.innerHTML += '<p class="filtre" onclick="filtre(' +projets[i].category.id+ ')">' + categories[j] + '</p>';
                 i = projets.length;
             }
     }
