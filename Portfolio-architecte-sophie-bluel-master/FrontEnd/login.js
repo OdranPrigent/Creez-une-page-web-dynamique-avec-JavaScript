@@ -16,7 +16,7 @@ function connection(e) {
         "password": form.password.value})})
       .then(reponse => {
         if(reponse.status!=200){
-          document.getElementById('mdp').innerHTML = "Nom d'utilisateur ou email invalide.";
+          document.getElementById('mdp').innerHTML = "Mot de passe ou email invalide.";
           admin = false;
         }
         else{
@@ -25,12 +25,12 @@ function connection(e) {
         }
           })
       .then(reponse => {testReponse(reponse)})
-      .catch ((error) => {console.log(error)})
+      .catch ((error) => {})
     }
     else
-      document.getElementById('mdp').innerHTML = "champ mdp vide";
+      document.getElementById('mdp').innerHTML = "Champ mot de passe vide";
   else
-    document.getElementById('mdp').innerHTML = "e-mail non conforme";
+    document.getElementById('mdp').innerHTML = "Email non conforme";
 }
 
 form.addEventListener("submit", connection);
