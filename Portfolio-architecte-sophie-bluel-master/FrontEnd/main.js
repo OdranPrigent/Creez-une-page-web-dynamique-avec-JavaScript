@@ -33,7 +33,7 @@ function createGalery (works, id) {
             if (categories[j] == works[i].category.name){
                 j = categories.length+1;
             }
-        if (j == categories.length)
+        if (j == categories.length && works[i].category.name)
             categories.push(works[i].category.name);
 
         let figCaption = document.createElement("figcaption");
@@ -45,8 +45,8 @@ function createGalery (works, id) {
             gallery.innerHTML += figure.outerHTML;
         } 
     }
+    
     createFiltre(-1);
-
     if (sessionStorage.getItem("tokenSophieBluel"))
         modifier();
     else{
@@ -176,10 +176,10 @@ function addWork(){
         let formData = new FormData();
         formData.append("image", file);
         formData.append("title",document.getElementById('titre').value);
-        for (j=0; j<categories.length; j++){
-            if (categories[j] == document.getElementById('categorySelect').value){
-                formData.append("category",j+1);
-                j = categories.length;
+        for (j=0; j<projets.length; j++){
+            if (projets[j].category.name == document.getElementById('categorySelect').value){
+                formData.append("category",projets[j].category.id);
+                j = projets.length;
             }          
         }
         let w = { category:{id:j+1, name:categories[j]}, categoryId:j+1, title:document.getElementById('titre').value, imageUrl:URL.createObjectURL(file)};
